@@ -1,0 +1,4 @@
+#!/bin/bash
+python3 -m compileall $PYFILE
+mv __pycache__/main.cpython-38.pyc . && mv main.cpython-38.pyc main.pyc
+rm -r __pycache__
