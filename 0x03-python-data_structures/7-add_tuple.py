@@ -1,4 +1,4 @@
-#!/usr/bin/pyhton3
+#!/usr/bin/python3
 def add_tuple(tuple_a=(), tuple_b=()):
     left = 0
     right = 0
