@@ -10,27 +10,27 @@
 
 int is_palindrome(listint_t **head)
 {
-	int i = 0, j = 0;
-	int items[50];
+    int i = 0, j = 0;
+    int items[50];
 
-	while (*head)
-	{
-		items[i] = (*head)->n;
-		(*head) = (*head)->next;
-		i++;
-	}
+    while (*head)
+    {
+        items[i] = (*head)->n;
+        (*head) = (*head)->next;
+        i++;
+    }
 
-	i--;
+    i--;
 
-	while (j <= i)
-	{
-		if (items[j] != items[i])
-		{
-			return (0);
-		}
-		j++;
-		i--;
-	}
+    while (j <= i)
+    {
+        if (items[j] != items[i])
+        {
+            return (0);
+        }
+        j++;
+        i--;
+    }
 
-	return (1);
+    return (1);
 }
