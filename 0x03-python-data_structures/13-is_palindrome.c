@@ -12,11 +12,12 @@ int is_palindrome(listint_t **head)
 {
     int i = 0, j = 0;
     int items[50];
+    listint_t *temp = *head;
 
-    while (*head)
+    while (temp)
     {
-        items[i] = (*head)->n;
-        (*head) = (*head)->next;
+        items[i] = temp->n;
+        temp = temp->next;
         i++;
     }
 
