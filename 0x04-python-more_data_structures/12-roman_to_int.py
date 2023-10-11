@@ -5,6 +5,7 @@ def roman_to_int(roman_string):
     roman_values = {
         'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000
     }
+    roman_string = roman_string.upper()
     value = 0
     current_value = 0
     next_value = 0
