@@ -1,31 +1,15 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
-    if not roman_string or 'IIII' in roman_string or 'VV' in roman_string\
-            or 'LL' in roman_string or 'VC' in roman_string\
-            or 'DD' in roman_string or 'XXXX' in roman_string\
-            or 'CCCC' in roman_string or 'XD' in roman_string\
-            or 'IC' in roman_string or 'VM' in roman_string:
+    if not roman_string or not isinstance(roman_string, str):
         return 0
 
-    roman_values = {
-        'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000
-    }
-
-    value = 0
-    current_value = 0
-    next_value = 0
+    romans = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+    integer = 0
 
     for i in range(len(roman_string)):
-        if roman_string[i] not in list(roman_values):
-            return 0
-        current_value = roman_values[roman_string[i]]
-        if i + 1 < len(roman_string):
-            if roman_string[i + 1] not in list(roman_values):
-                return 0
-            next_value = roman_values[roman_string[i + 1]]
-        if current_value >= next_value:
-            value += current_value
+        if i > 0 and romans[roman_string[i]] > romans[roman_string[i - 1]]:
+            integer += romans[roman_string[i]] - \
+                (2 * romans[roman_string[i - 1]])
         else:
-            value -= current_value
-
-    return value
+            integer += romans[roman_string[i]]
+    return integer
