@@ -1,6 +1,10 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
-    if not roman_string:
+    if not roman_string or 'IIII' in roman_string or 'VV' in roman_string\
+            or 'LL' in roman_string or 'VC' in roman_string\
+            or 'DD' in roman_string or 'XXXX' in roman_string\
+            or 'CCCC' in roman_string or 'XD' in roman_string\
+            or 'IC' in roman_string or 'VM' in roman_string:
         return 0
 
     roman_values = {
