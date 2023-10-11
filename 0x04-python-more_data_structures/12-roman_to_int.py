@@ -10,8 +10,12 @@ def roman_to_int(roman_string):
     current_value = 0
     next_value = 0
     for i in range(len(roman_string)):
+        if roman_string[i] not in list(roman_values):
+            return "None"
         current_value = roman_values[roman_string[i]]
         if i + 1 < len(roman_string):
+            if roman_string[i + 1] not in list(roman_values):
+                return "None"
             next_value = roman_values[roman_string[i + 1]]
         if current_value >= next_value:
             value += current_value
