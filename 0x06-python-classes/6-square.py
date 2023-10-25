@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Containes class that defines a square"""
+"""Contains class that defines a square"""
 
 
 class Square:
@@ -27,25 +27,28 @@ class Square:
 
     @position.setter
     def position(self, value):
-        if type(value) is not tuple\
-                and len(value) != 2 and type(value[0]) is not int \
-                and type(value[1]) is not int:
+        if type(value) is tuple\
+                and len(value) == 2\
+                and type(value[0]) is int\
+                and type(value[1]) is int:
+            self.__position = value
+        else:
             raise TypeError("position must be a tuple of 2 positive integers")
 
     def area(self):
-        """Finds area"""
-        return (self.__size ** 2)
+        """Returns Area of Square"""
+        return self.size ** 2
 
     def my_print(self):
-        """Prints the square"""
+        """Prints Square"""
         if self.size == 0:
             print()
             return
-        for i in range(0, self.__position[1]):
+        for y in range(self.position[1]):
             print()
-        for i in range(self.size):
-            for j in range(self.position[0]):
+        for length in range(self.size):
+            for x in range(self.position[0]):
                 print(" ", end="")
-            for k in range(self.size):
+            for width in range(self.size):
                 print("#", end="")
-            print("")
+            print()
