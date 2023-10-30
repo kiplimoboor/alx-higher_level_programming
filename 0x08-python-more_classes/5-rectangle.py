@@ -60,6 +60,6 @@ class Rectangle:
         """Returns String Representation of the Rectangle"""
         return (f"Rectangle({self.width}, {self.height})")
 
-    def _del__(self):
+    def __del__(self):
         """Deletes an instance of Rectangle"""
-        return ("Bye rectangle...")
+        print("Bye rectangle...")
