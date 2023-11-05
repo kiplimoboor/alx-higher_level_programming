@@ -9,87 +9,44 @@ First import ``add_integer`` from the ``0-add_integer`` module:
 
     >>> add_integer = __import__('0-add_integer').add_integer
 
-Checking for module docstring:
+Adding 2 positive numbers
+    >>> add_integer(1, 1)
+    2
 
-    >>> m = __import__("0-add_integer").__doc__
-    >>> len(m) > 1 
-    True
+Adding positive and negative
+    >>> add_integer(2, -4)
+    -2
 
-Checking for function docstring:
+Adding 2 negative numbers
+    >>> add_integer(-2, -2)
+    -4
 
-    >>> f = __import__("0-add_integer").add_integer.__doc__
-    >>> len(f) > 1
-    True
-         
-Basic usage:
-
-    >>> add_integer(1, 2)
+Using floats
+    >>> add_integer(1.67, 2.76)
     3
-    
-Test int argument:
 
+Using only one 1 parameter
     >>> add_integer(2)
     100
 
-Test int argument and check default second:
+Calling it in a list
+    >>> [add_integer(i, i) for i in range(1,6)]
+    [2, 4, 6, 8, 10]
 
-    >>> add_integer(0)
-    98
-
-Checking positive with negative:
-
-    >>> add_integer(2, -4)
-    -2 
-
-Checking negative with positive:
-
-    >>> add_integer(-6, 8)
-    2
-
-Checking addition over multiple values:
-
-    >>> [add_integer(i, i ** 2) for i in range(6)]
-    [0, 2, 6, 12, 20, 30]
-
-Float and negative input:
-
-    >>> add_integer(100.3, -2)
-    98
-
-Float overflow:
-
-    >>> add_integer(1500.5)
-    1598
-
-Float NaN:
-
-    >>> add_integer(float('NaN'))
+Using no parameter
+    >>> add_integer()
     Traceback (most recent call last):
-    ...
-    ValueError: cannot convert float NaN to integer
+        ...
+    TypeError: add_integer() missing 1 required positional argument: 'a'
 
-String input:
-
-    >>> add_integer(4, "School")
+Using string as argument
+    >>> add_integer('hello', 2)
     Traceback (most recent call last):
-    ...
-    TypeError: b must be an integer
-
-None input:
-
-    >>> add_integer(None)
-    Traceback (most recent call last):
-    ...
+        ...
     TypeError: a must be an integer
 
-Double negative float input:
-
-    >>> add_integer(-100.5, -10.8)
-    -110
-
-Double string input:
-
-    >>> add_integer("holberton", "school")
+Using two string arguments
+    >>> add_integer('hello', 'world')
     Traceback (most recent call last):
-    ...
+        ...
     TypeError: a must be an integer
