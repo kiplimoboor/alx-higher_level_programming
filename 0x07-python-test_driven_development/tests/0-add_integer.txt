@@ -1,52 +1,124 @@
-The ``0-add_integer test`` module
-=================================
 
-Using ``add_integer``
----------------------
+===========================
+How to Use 0-add_integer.py
+===========================
 
-This file is in restructured text format.
-First import ``add_integer`` from the ``0-add_integer`` module:
+This module defines an integer addition function ``add_integer(a, b=98)``.
+
+Usage
+=====
+
+``add_integer(...)``` returns the addition of its two arguments. For numbers,
+that value is equivalent to using the ``+`` operator.
+
+::
 
     >>> add_integer = __import__('0-add_integer').add_integer
+    >>> add_integer(2, 3)
+    5
 
-Adding 2 positive numbers
-    >>> add_integer(1, 1)
+::
+
+    >>> add_integer(2, -3)
+    -1
+
+The function also works with floating-point values.
+
+::
+
+    >>> add_integer(2.0, 3.0)
+    5
+
+Note that floats are casted to ints before addition is performed.
+
+::
+
+    >>> add_integer(2.9, 0.2)
     2
 
-Adding positive and negative
-    >>> add_integer(2, -4)
+::
+
+    >>> add_integer(-2.9, -0.2)
     -2
 
-Adding 2 negative numbers
-    >>> add_integer(-2, -2)
-    -4
+Floating and non-floating point values can be combined.
 
-Using floats
-    >>> add_integer(1.67, 2.76)
-    3
+::
 
-Using only one 1 parameter
+    >>> add_integer(2.3, -3)
+    -1
+
+The second argument is optional - by default, it is 98.
+
+::
+
     >>> add_integer(2)
     100
 
-Calling it in a list
-    >>> [add_integer(i, i) for i in range(1,6)]
-    [2, 4, 6, 8, 10]
+Non-Numbers
+===========
 
-Using no parameter
-    >>> add_integer()
-    Traceback (most recent call last):
-        ...
-    TypeError: add_integer() missing 1 required positional argument: 'a'
+``add_integer()`` expects that both arguments are either integers or floats.
+If either argument is a non-integer and non-float, a TypeError is raised:
 
-Using string as argument
-    >>> add_integer('hello', 2)
+::
+
+    >>> add_integer("hello", 3)
     Traceback (most recent call last):
-        ...
     TypeError: a must be an integer
 
-Using two string arguments
-    >>> add_integer('hello', 'world')
+::
+
+    >>> add_integer(2, "hello")
     Traceback (most recent call last):
-        ...
+    TypeError: b must be an integer
+
+::
+
+    >>> add_integer(None)
+    Traceback (most recent call last):
     TypeError: a must be an integer
+
+::
+
+    >>> add_integer(2.3, None)
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+If both arguments are non-integers and non-floats, a TypeError message is only
+printed for the first argument.
+
+::
+
+    >>> add_integer("hello", "there")
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+The function will fail if infinity is provided.
+
+::
+
+    >>> add_integer(float('inf'))
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+     
+
+::
+
+    >>> add_integer(2, float('inf'))
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+
+And again with NaN numbers.
+
+::
+
+    >>> add_integer(float('nan'))
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer
+
+::
+
+    >>> add_integer(2, float('nan'))
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer
