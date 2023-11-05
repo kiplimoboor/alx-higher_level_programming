@@ -1,0 +1,56 @@
+The ``2-matrix_divided`` module
+===============================
+
+Using ``matrix_divided``
+------------------------
+
+First import ``matrix_divided`` from the ``2-matrix_divided`` module:
+
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+Define a matrix:
+    >>> matrix = [[1, 2, 3],[4, 5, 6]]
+
+Basic usage of the function:
+    >>> matrix_divided(matrix, 3)
+    [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+Dividing the matrix by zero:
+    >>> matrix_divided(matrix, 0)
+    Traceback (most recent call last):
+        ...
+    ZeroDivisionError: division by zero
+
+Dividing by a string:
+    >>> matrix_divided(matrix, 'hello')
+    Traceback (most recent call last):
+        ...
+    TypeError: div must be a number
+
+Passing a string instead of a matrix:
+    >>> matrix_divided('hello', 1)
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+
+Dividing an empty matrix:
+    >>> matrix = []
+    >>> matrix_divided(matrix, 2)
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Dividing mixed type matrix:
+    >>> matrix = [[1, 'hello', 3],[4, 'world', 6]]
+    >>> matrix_divided(matrix, 2)
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Dividing matrix with different row lengths:
+    >>> matrix = [[1,2,3], [1,2]]
+    >>> matrix_divided(matrix, 2)
+    Traceback (most recent call last):
+        ...
+    TypeError: Each row of the matrix must have the same size
