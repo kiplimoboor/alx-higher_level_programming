@@ -15,8 +15,17 @@ First, import ```MyList``` from ```1-my_list``` module:
 
 ::
 
-When an instance of MyList is created, it is similar to creating a list.
-The my_list instance below creates an empty list.
+Confirm if ```MyList``` inherits from list:
+
+::
+
+    >>> issubclass(MyList, list)
+    True
+
+::
+
+When an instance of MyList is created, it becomes a list.
+The my_list instance below should create an empty list.
 
 ::
 
@@ -26,7 +35,26 @@ The my_list instance below creates an empty list.
 
 ::
 
-All attributes of the list are available for the my_list variable.
+Check if my_list is actually a list:
+
+::
+
+    >>> isinstance(my_list, list)
+    True
+
+::
+
+Confirm ```my_list``` is instance of MyList:
+
+::
+
+    >>> type(my_list) == MyList
+    True
+
+::
+
+
+All attributes of the list are available for the ```my_list``` variable.
 
 ::
 
@@ -56,6 +84,25 @@ Calling ```print_sorted``` to print the list in asc order:
 
 ::
 
+Confirming that the ```my_list``` was not changed:
+
+::
+
+    >>> my_list
+    [1, 4, 2, 3, 5]
+
+::
+
+
+Checking if ```print_sorted``` is a method:
+
+::
+
+    >>> type(my_list.print_sorted)
+    <class 'method'>
+
+::
+
 Calling the class with a parameter that is a list creates that list:
 
 ::
@@ -76,6 +123,16 @@ Printing a sorted list with elements of same value:
 
 ::
 
+Printing sorted list of positive and negative values:
+
+::
+
+    >>> my_list = MyList([1,-4, -8, 2, 3, 5])
+    >>> my_list.print_sorted()
+    [-8, -4, 1, 2, 3, 5]
+
+::
+
 Printing a sorted list with only one value:
 
 ::
@@ -85,40 +142,6 @@ Printing a sorted list with only one value:
     [5]
 
 ::
-
-The created list can be mutated just like any other list:
-
-::
-    >>> my_list = MyList([1, 2, 3, 4, 5])
-    >>> my_list[3] = 1000
-    >>> my_list
-    [1, 2, 3, 1000, 5]
-
-::
-
-Passing an iterable object that is not a list, will however work, but the iterable
-object will be parsed into a list:
-
-::
-
-    >>> my_list = MyList('rr')
-    >>> my_list
-    ['r', 'r']
-
-::
-
-And the list can also be deleted:
-
-::
-
-    >>> del(my_list)
-    >>> my_list
-    Traceback (most recent call last):
-        ...
-    NameError: name 'my_list' is not defined
-
-::
-
 
 
 Invalid Cases
@@ -133,7 +156,7 @@ Passing None will raise an error:
     TypeError: 'NoneType' object is not iterable
 
 ::
-Passing more than one parameter will raise an error:
+Passing more than one parameter when Calling the class will raise an error:
 
 ::
 
@@ -152,5 +175,16 @@ Passing an non-iterable parameter also fails when creating the class instance al
     Traceback (most recent call last):
         ...
     TypeError: 'int' object is not iterable
+
+::
+
+Passing parameters into the ```print_sorted``` method also raises an error:
+
+::
+
+    >>> my_list.print_sorted([1,2,3])
+    Traceback (most recent call last):
+        ...
+    TypeError: MyList.print_sorted() takes 1 positional argument but 2 were given
 
 ::
