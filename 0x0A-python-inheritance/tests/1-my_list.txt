@@ -21,6 +21,8 @@ The my_list instance below creates an empty list.
 ::
 
     >>> my_list = MyList()
+    >>> my_list.print_sorted()
+    []
 
 ::
 
@@ -108,16 +110,5 @@ Passing an non-iterable parameter also fails when creating the class instance al
     Traceback (most recent call last):
         ...
     TypeError: 'int' object is not iterable
-
-::
-
-Passing an iterable object that is not a list, will however work, but the iterable
-object will be parsed into a list:
-
-::
-
-    >>> my_list = MyList('rr')
-    >>> my_list
-    ['r', 'r']
 
 ::
