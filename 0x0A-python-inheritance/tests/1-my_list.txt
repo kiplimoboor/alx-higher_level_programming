@@ -89,6 +89,7 @@ Printing a sorted list with only one value:
 The created list can be mutated just like any other list:
 
 ::
+    >>> my_list = MyList([1, 2, 3, 4, 5])
     >>> my_list[3] = 1000
     >>> my_list
     [1, 2, 3, 1000, 5]
