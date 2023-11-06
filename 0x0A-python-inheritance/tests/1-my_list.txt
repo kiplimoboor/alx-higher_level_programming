@@ -4,10 +4,10 @@ The ```1-my_list``` module
 Using ```MyList```
 ---------------------
 
-First, import ```MyList``` from ```1-my_list``` module:
 MyList is a class that inherits from the builtin list class.
-It creates a list, and has a method that prints the list in ascending order
-The class assumes every element of the list is an integer
+It creates a list, and has a method ```print_sorted``` that prints the list in ascending order
+For sorting, the class assumes every element of the list is an integer
+First, import ```MyList``` from ```1-my_list``` module:
 
 ::
 
@@ -15,13 +15,13 @@ The class assumes every element of the list is an integer
 
 ::
 
-When an instance of MyList is created, it is thus similar to creating a list.
+When an instance of MyList is created, it is similar to creating a list.
 The my_list instance below creates an empty list.
 
 ::
 
     >>> my_list = MyList()
-    >>> my_list.print_sorted()
+    >>> my_list
     []
 
 ::
@@ -47,7 +47,7 @@ Trying to print the appended list:
 
 ::
 
-Calling the method to print the list in asc order:
+Calling ```print_sorted``` to print the list in asc order:
 
 ::
 
@@ -60,9 +60,29 @@ Calling the class with a parameter that is a list creates that list:
 
 ::
 
-    >>> my_list = MyList([1,2,3,4,5,])
+    >>> my_list = MyList([1,1,3,4,5,])
     >>> my_list
-    [1, 2, 3, 4, 5]
+    [1, 1, 3, 4, 5]
+
+::
+
+Printing a sorted list with elements of same value:
+
+::
+
+    >>> my_list = MyList([1,1,3,4])
+    >>> my_list.print_sorted()
+    [1, 1, 3, 4]
+
+::
+
+Printing a sorted list with only one value:
+
+::
+
+    >>> my_list = MyList([5])
+    >>> my_list.print_sorted()
+    [5]
 
 ::
 
