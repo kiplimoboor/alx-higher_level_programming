@@ -1,0 +1,123 @@
+The ```1-my_list``` module
+==========================
+
+Using ```MyList```
+---------------------
+
+First, import ```MyList``` from ```1-my_list``` module:
+MyList is a class that inherits from the builtin list class.
+It creates a list, and has a method that prints the list in ascending order
+The class assumes every element of the list is an integer
+
+::
+
+    >>> MyList = __import__('1-my_list').MyList
+
+::
+
+When an instance of MyList is created, it is thus similar to creating a list.
+The my_list instance below creates an empty list.
+
+::
+
+    >>> my_list = MyList()
+
+::
+
+All attributes of the list are available for the my_list variable.
+
+::
+
+    >>> my_list.append(1)
+    >>> my_list.append(4)
+    >>> my_list.append(2)
+    >>> my_list.append(3)
+    >>> my_list.append(5)
+
+::
+
+Trying to print the appended list:
+
+::
+
+    >>> my_list
+    [1, 4, 2, 3, 5]
+
+::
+
+Calling the method to print the list in asc order:
+
+::
+
+    >>> my_list.print_sorted()
+    [1, 2, 3, 4, 5]
+
+::
+
+Calling the class with a parameter that is a list creates that list:
+
+::
+
+    >>> my_list = MyList([1,2,3,4,5,])
+    >>> my_list
+    [1, 2, 3, 4, 5]
+
+::
+
+The created list can be mutated just like any other list:
+
+::
+    >>> my_list[3] = 1000
+    >>> my_list
+    [1, 2, 3, 1000, 5]
+
+::
+
+And the list can also be deleted:
+
+::
+
+    >>> del(my_list)
+    >>> my_list
+    Traceback (most recent call last):
+        ...
+    NameError: name 'my_list' is not defined
+
+::
+
+
+
+Invalid Cases
+-------------
+Passing more than one parameter will raise an error:
+
+::
+
+    >>> my_list = MyList([1, 2, 3], [1 , 2], [])
+    Traceback (most recent call last):
+        ...
+    TypeError: list expected at most 1 argument, got 3
+
+::
+
+Passing an non-iterable parameter also fails when creating the class instance also raises an error:
+
+::
+
+    >>> my_list = MyList(1)
+    Traceback (most recent call last):
+        ...
+    TypeError: 'int' object is not iterable
+
+::
+
+Passing an iterable object that is not a list, will however work, but the iterable
+object will be parsed into a list:
+
+::
+
+    >>> my_list = MyList('rr')
+    >>> my_list
+    ['r', 'r']
+
+::
