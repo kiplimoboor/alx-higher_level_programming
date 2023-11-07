@@ -12,14 +12,23 @@ Importation
 Instantiation
 =============
 
-    >>> bg = BaseGeometry()
+        >>> bg = BaseGeometry()
 
-Instantiation takes no arguments:
+    Instantiation takes no arguments:
 
-    >>> bg = BaseGeometry(None)
-    Traceback (most recent call last):
-        ...
-    TypeError: BaseGeometry() takes no arguments
+        >>> bg = BaseGeometry(None)
+        Traceback (most recent call last):
+            ...
+        TypeError: BaseGeometry() takes no arguments
+     
+     Confirming if ``bg`` is made from ``BaseGeometry``:
+
+        >>> type(bg)
+        <class '7-base_geometry.BaseGeometry'>
+    
+        >>> isinstance(bg, BaseGeometry)
+        True
+
 
 
 
