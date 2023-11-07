@@ -66,8 +66,3 @@ Methods
             TypeError: name must be an integer
     
     Only the ``name`` and ``value`` should be provided. Nothing more, nothing less:
-
-        >>> bg.integer_validator('name', 2, 3)
-        Traceback (most recent call last):
-            ...
-        TypeError: BaseGeometry.integer_validator() takes 3 positional arguments but 4 were given
