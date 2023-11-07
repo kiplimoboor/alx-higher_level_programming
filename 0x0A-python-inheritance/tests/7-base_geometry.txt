@@ -64,6 +64,12 @@ Methods
         Traceback (most recent call last):
             ...
         TypeError: name must be an integer
+
+
+        >>> bg.integer_validator({"kiplimoboor": 254}, (254, 'Kenya'))
+        Traceback (most recent call last):
+            ...
+        TypeError: {'kiplimoboor': 254} must be an integer
     
     The second argument should be greater than 0:
 
