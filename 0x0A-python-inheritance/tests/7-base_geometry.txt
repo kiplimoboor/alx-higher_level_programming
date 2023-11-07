@@ -1,0 +1,73 @@
+=======================
+How to Use 7-base_geometry.txt
+=======================
+
+This module defines the class ``Geometry``
+
+Importation
+===========
+
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+Instantiation
+=============
+
+    >>> bg = BaseGeometry()
+
+
+Confirming if ``bg`` is made from ``BaseGeometry`` class:
+
+    >>> type(bg)
+    <class '7-base_geometry.BaseGeometry'>
+
+    >>> isinstance(bg, BaseGeometry)
+    True
+ 
+Methods
+=======
+
+The validator function should take a string as the first argument,
+and an integer as the second argument. The first argument is assumed to always be a string:
+
+    >>> bg.integer_validator('name', 2)
+
+The second argument must be an integer:
+
+    >>> bg.integer_validator(2, 'name')
+    Traceback (most recent call last):
+        ...
+    TypeError: 2 must be an integer
+
+
+    >>> bg.integer_validator('name', 'name')
+    Traceback (most recent call last):
+        ...
+    TypeError: name must be an integer
+
+
+    >>> bg.integer_validator('name', [1,2,3])
+    Traceback (most recent call last):
+        ...
+    TypeError: name must be an integer
+
+
+
+The second argument must always be greater than 0 as well:
+
+    >>> bg.integer_validator('name', -3)
+    Traceback (most recent call last):
+        ...
+    ValueError: name must be greater than 0
+    
+
+    >>> bg.integer_validator('name', 0)
+    Traceback (most recent call last):
+        ...
+    ValueError: name must be greater than 0
+
+The ``area`` method is yet to be implemented:
+
+    >>> bg.area()
+    Traceback (most recent call last):
+        ...
+    Exception: area() is not implemented
