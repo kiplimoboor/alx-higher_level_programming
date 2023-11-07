@@ -29,6 +29,15 @@ Instantiation
         >>> isinstance(bg, BaseGeometry)
         True
 
+Methods
+=======
+``BaseGeometry`` has two methods;``area`` and ``integer_validator``  methods.
 
-
-
+    area
+    ----
+    This function is yet to be implemented
+        >>> bg.area()
+        Traceback (most recent call last):
+            ...
+        Exception: area() is not implemented
+        
