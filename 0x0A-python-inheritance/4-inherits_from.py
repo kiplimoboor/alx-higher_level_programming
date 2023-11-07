@@ -6,7 +6,7 @@ def inherits_from(obj, a_class):
     """Checks if an instance is a subclass
 
     Args:
-        obj (any): instance to check
+        obj (class): instance to check
         a_class (class): parent class to check against
     """
 

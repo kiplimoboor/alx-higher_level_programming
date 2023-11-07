@@ -11,8 +11,6 @@ Instantiation
 ``MyList`` can be instantiated with no arguments, which will return
 an empty list:
 
-::
-
     >>> MyList = __import__('1-my_list').MyList
     >>> my_list = MyList()
     >>> type(my_list)
