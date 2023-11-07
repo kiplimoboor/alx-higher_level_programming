@@ -1,8 +1,12 @@
 #!/usr/bin/python3
-"""Module with a simple class inheriting from list"""
+
+
+"""MyList class"""
 
 
 class MyList(list):
-    """Prints a list in ascending order"""
+    """My list class inheritting list"""
+
     def print_sorted(self):
-        print(sorted(self))
+        """Print a list sorted in ascending order"""
+        print(sorted(self, reverse=False))
