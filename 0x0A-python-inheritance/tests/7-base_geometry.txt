@@ -31,7 +31,7 @@ Instantiation
 
 Methods
 =======
-``BaseGeometry`` has two methods;``area`` and ``integer_validator``  methods.
+    ``BaseGeometry`` has two methods;``area`` and ``integer_validator``  methods.
 
     area
     ----
@@ -40,4 +40,27 @@ Methods
         Traceback (most recent call last):
             ...
         Exception: area() is not implemented
+    
+    
+    integer_validator
+    ----------------
+    This function takes two parameters.
+    The first paramter (name) is a string and the second parameter (value) is an integer.
+    The first argument is assumed to always be a string.
+
+    If the parameters are valid, the function does nothing:
+    
+        >>> bg.integer_validator('name', 2)
+    
+    The second argument must be an integer:
+
+            >>> bg.integer_validator(2, 'name')
+            Traceback (most recent call last):
+                ...
+            TypeError: 2 must be an integer
         
+
+            >>> bg.integer_validator('name', 'name')
+            Traceback (most recent call last):
+                ...
+            TypeError: name must be an integer
