@@ -33,4 +33,5 @@ class Student:
             json (dict): The JSON to be loaded
         """
 
-        self.__dict__ = json
+        for k, v in json.items():
+            setattr(self, k, v)
