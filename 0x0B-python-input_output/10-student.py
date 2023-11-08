@@ -21,15 +21,9 @@ class Student:
             dict: dictionary representation of the student instance
         """
 
-        if isinstance(attrs, list) and\
-                all(isinstance(el, str) for el in attrs):
-            attributes = {}
-            for attribute in attrs:
-                try:
-                    attributes[attribute] = getattr(self, attribute)
-                except AttributeError:
-                    continue
+        if (type(attrs) == list and all(type(el) == str for el in attrs)):
+            return {attr: getattr(self, attr) for attr in attrs if hasattr(self, attr)}
         else:
-            attributes = self.__dict__
+            return self.__dict__
 
         return attributes
