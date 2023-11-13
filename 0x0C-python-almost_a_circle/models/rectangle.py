@@ -111,6 +111,5 @@ class Rectangle(Base):
             if length > 4:
                 self.y = args[4]
         else:
-            for attr in kwargs:
-                if hasattr(self, attr):
-                    self.attr = attr
+            for key, value in kwargs.items():
+                setattr(self, key, value)
