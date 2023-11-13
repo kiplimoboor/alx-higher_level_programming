@@ -11,9 +11,7 @@ class Base:
         """Initializes new Base object
 
         Args:
-            id (int, optional): An optional ID for the object.
-                                If omitted, a unique ID will
-                                be assigned automatically. Defaults to None.
+            id (int, optional): ID for the object. Defaults to None.
         """
         if id is not None:
             self.id = id
