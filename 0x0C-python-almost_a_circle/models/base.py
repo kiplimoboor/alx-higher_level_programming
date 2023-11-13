@@ -22,6 +22,14 @@ class Base:
             self.id = Base.__nb_objects
 
     def to_json_string(list_dictionaries):
+        """gets JSON string representation of list_dictionaries
+
+        Args:
+            list_dictionaries (dict): list of dictionaries
+
+        Returns:
+            JSON String: JSON string representation of list_dictionaries
+        """
         if not list_dictionaries:
             return "[]"
         return json.dumps(list_dictionaries)
