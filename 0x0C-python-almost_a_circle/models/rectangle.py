@@ -2,6 +2,7 @@
 """Module with rectangle class"""
 
 from models.base import Base
+import json
 
 
 class Rectangle(Base):
@@ -105,3 +106,12 @@ class Rectangle(Base):
         else:
             for key, value in kwargs.items():
                 setattr(self, key, value)
+
+    def to_dictionary(self):
+        """creates dictionary representation of rectangle instance
+
+        Returns:
+            dict: the dictionary representation
+        """
+        return {'id': self.id, 'width': self.width,
+                'height': self.height, 'x': self.x, 'y': self.y}
