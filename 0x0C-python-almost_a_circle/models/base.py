@@ -66,3 +66,14 @@ class Base:
         if json_string is None:
             return []
         return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """returns instance with all attributes already set
+
+        Returns:
+            object: instance of a class object
+        """
+        instance = Base.__subclasses__()[0](3, 3)
+        instance.update(**dictionary)
+        return instance
