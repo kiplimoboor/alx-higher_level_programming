@@ -50,5 +50,5 @@ class Base:
             json_string = cls.to_json_string(list_dictionaries)
             filename = f"{cls.__name__}" + ".json"
 
-        with open(filename, 'w+') as file:
+        with open(filename, 'w') as file:
             file.write(json_string)
