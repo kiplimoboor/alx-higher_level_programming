@@ -30,6 +30,6 @@ class Base:
         Returns:
             JSON String: JSON string representation of list_dictionaries
         """
-        if not list_dictionaries:
+        if not list_dictionaries or len(list_dictionaries) == 0:
             return "[]"
         return json.dumps(list_dictionaries)
