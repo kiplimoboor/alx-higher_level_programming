@@ -43,12 +43,11 @@ class Base:
             list_objs (list): list of objects to be saved
         """
 
-        if list_objs is None:
-            json_string = "[]"
-        else:
-            list_dictionaries = [i.to_dictionary() for i in list_objs]
-            json_string = cls.to_json_string(list_dictionaries)
-            filename = cls.__name__ + ".json"
+        filename = cls.__name__ + ".json"
 
         with open(filename, 'w') as file:
-            file.write(json_string)
+            if list_objs is None:
+                file.write("[]")
+            else:
+                list_dictionaries = [i.to_dictionary() for i in list_objs]
+                file.write(cls.to_json_string(list_dictionaries))
