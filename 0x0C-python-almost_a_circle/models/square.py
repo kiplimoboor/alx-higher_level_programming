@@ -27,6 +27,8 @@ class Square(Rectangle):
         self.height = size
 
     def update(self, *args, **kwargs):
+        """Updates the square attributes
+        """
         if args:
             attributes = ['id', 'size', 'x', 'y']
             for i in range(len(args)):
