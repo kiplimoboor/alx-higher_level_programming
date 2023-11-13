@@ -50,4 +50,4 @@ class Base:
                 jsonfile.write("[]")
             else:
                 list_dicts = [i.to_dictionary() for i in list_objs]
-                jsonfile.write(cls.to_json_string(list_dicts))
+                file.write(cls.to_json_string(list_dicts))
