@@ -105,7 +105,12 @@ class TestRectangleMethods(unittest.TestCase):
         self.assertEqual(output.getvalue(), "\n\n  ##\n  ##\n")
 
     def test_update_with_args(self):
-        r1 = Rectangle(1, 2)
+        r1 = Rectangle(1, 10, 3, 5, 25)
+        self.assertEqual(r1.id, 25)
+        self.assertEqual(r1.width, 1)
+        self.assertEqual(r1.height, 10)
+        self.assertEqual(r1.x, 3)
+        self.assertEqual(r1.y, 5)
 
         r1.update(1, 3, 2, 4, 3)
         self.assertEqual(r1.id, 1)
