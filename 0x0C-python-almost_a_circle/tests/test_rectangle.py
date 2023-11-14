@@ -33,7 +33,7 @@ class TestRectangleInit(unittest.TestCase):
 
     def test_height(self):
         r1 = Rectangle(3, 4)
-        self.assertEqual(r1.height, 2)
+        self.assertEqual(r1.height, 4)
 
         with self.assertRaises(TypeError):
             r2 = Rectangle(3, "World")
@@ -56,7 +56,7 @@ class TestRectangleInit(unittest.TestCase):
         with self.assertRaises(ValueError):
             r3 = Rectangle(0, 2, -1, 2)
 
-    def test_y(x):
+    def test_y(self):
         r1 = Rectangle(3, 4)
         self.assertEqual(r1.y, 0)
 
