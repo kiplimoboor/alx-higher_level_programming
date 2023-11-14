@@ -4,7 +4,7 @@ from models.rectangle import Rectangle
 from models.base import Base
 
 
-class TestRectangleInite(unittest.TestCase):
+class TestRectangleInit(unittest.TestCase):
     def test_parent_class(self):
         r1 = Rectangle(1, 1)
 
@@ -56,3 +56,15 @@ class TestRectangleInite(unittest.TestCase):
             r3 = Rectangle(0, 2, -1, 2)
         with self.assertRaises(ValueError):
             r3 = Rectangle(1, 0, 1, -2)
+
+
+class TestRectangleMethods(unittest.TestCase):
+    def test_area(self):
+        r1 = Rectangle(3, 2)
+        self.assertEqual(r1.area(), 6)
+
+        r2 = Rectangle(10, 10)
+        self.assertEqual(r2.area(), 100)
+
+        r3 = Rectangle(1, 5, 1, 1, 1)
+        self.assertEqual(r3.area(), 5)
