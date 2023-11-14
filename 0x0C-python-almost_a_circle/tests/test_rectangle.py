@@ -106,13 +106,16 @@ class TestRectangleMethods(unittest.TestCase):
 
     def test_update_with_args(self):
         r1 = Rectangle(1, 10, 3, 5, 25)
+        output = io.StringIO()
+        sys.stdout = output
+        print(r1)
+        self.assertEqual(output.getvalue(), "[Rectangle] (25) 3/5 - 1/10\n")
 
         r1.update(1, 3, 2, 4, 3)
-        self.assertEqual(r1.id, 1)
-        self.assertEqual(r1.width, 3)
-        self.assertEqual(r1.height, 2)
-        self.assertEqual(r1.x, 4)
-        self.assertEqual(r1.y, 3)
+        output = io.StringIO()
+        sys.stdout = output
+        print(r1)
+        self.assertEqual(output.getvalue(), "[Rectangle] (1) 4/3 - 3/2\n")
 
     def test_update_with_kwargs(self):
         r1 = Rectangle(1, 10, 3, 5, 25)
