@@ -75,11 +75,8 @@ class TestRectangleMethods(unittest.TestCase):
         r1 = Rectangle(3, 2)
         self.assertEqual(r1.area(), 6)
 
-        r2 = Rectangle(10, 10)
-        self.assertEqual(r2.area(), 100)
-
-        r3 = Rectangle(1, 5, 1, 1, 1)
-        self.assertEqual(r3.area(), 5)
+        r2 = Rectangle(1, 5, 1, 1, 1)
+        self.assertEqual(r2.area(), 5)
 
     def test_str(self):
         output = io.StringIO()
@@ -92,10 +89,14 @@ class TestRectangleMethods(unittest.TestCase):
 
     def test_display(self):
         r1 = Rectangle(1, 1)
+        r2 = Rectangle(2, 2, 2, 2, 5)
 
         output = io.StringIO()
         sys.stdout = output
         r1.display()
-        sys.stdout = sys.__stdout__
-
         self.assertEqual(output.getvalue(), "#\n")
+
+        output = io.StringIO()
+        sys.stdout = output
+        r2.display()
+        self.assertEqual(output.getvalue(), "\n\n  ##\n  ##\n")
