@@ -75,9 +75,6 @@ class Base:
             object: instance of a class object
         """
 
-        if cls.__name__ == "Rectangle":
-            instance = cls(1, 1)
-        elif cls.__name__ == "Square":
-            instance = cls(1)
+        instance = cls(1, 1) if cls.__name__ == "Rectangle" else cls(1)
         instance.update(**dictionary)
         return instance
