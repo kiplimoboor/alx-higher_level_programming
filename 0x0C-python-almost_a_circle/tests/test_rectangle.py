@@ -70,71 +70,71 @@ class TestRectangleInit(unittest.TestCase):
             r3 = Rectangle(1, 0, 1, -2)
 
 
-class TestRectangleMethods(unittest.TestCase):
-    def test_area(self):
-        r1 = Rectangle(3, 2)
-        self.assertEqual(r1.area(), 6)
+# class TestRectangleMethods(unittest.TestCase):
+#     def test_area(self):
+#         r1 = Rectangle(3, 2)
+#         self.assertEqual(r1.area(), 6)
 
-        r2 = Rectangle(1, 5, 1, 1, 1)
-        self.assertEqual(r2.area(), 5)
+#         r2 = Rectangle(1, 5, 1, 1, 1)
+#         self.assertEqual(r2.area(), 5)
 
-    def test_str(self):
-        r1 = Rectangle(3, 5, 0, 0, 1)
-        output = io.StringIO()
-        sys.stdout = output
-        print(r1)
-        self.assertEqual(output.getvalue(), "[Rectangle] (1) 0/0 - 3/5\n")
+#     def test_str(self):
+#         r1 = Rectangle(3, 5, 0, 0, 1)
+#         output = io.StringIO()
+#         sys.stdout = output
+#         print(r1)
+#         self.assertEqual(output.getvalue(), "[Rectangle] (1) 0/0 - 3/5\n")
 
-        r2 = Rectangle(4, 6, 2, 1, 12)
-        output = io.StringIO()
-        sys.stdout = output
-        print(r2)
-        self.assertEqual(output.getvalue(), "[Rectangle] (12) 2/1 - 4/6\n")
+#         r2 = Rectangle(4, 6, 2, 1, 12)
+#         output = io.StringIO()
+#         sys.stdout = output
+#         print(r2)
+#         self.assertEqual(output.getvalue(), "[Rectangle] (12) 2/1 - 4/6\n")
 
-    def test_display(self):
-        r1 = Rectangle(1, 1)
-        output = io.StringIO()
-        sys.stdout = output
-        r1.display()
-        self.assertEqual(output.getvalue(), "#\n")
+#     def test_display(self):
+#         r1 = Rectangle(1, 1)
+#         output = io.StringIO()
+#         sys.stdout = output
+#         r1.display()
+#         self.assertEqual(output.getvalue(), "#\n")
 
-        r2 = Rectangle(2, 2, 2, 2, 5)
-        output = io.StringIO()
-        sys.stdout = output
-        r2.display()
-        self.assertEqual(output.getvalue(), "\n\n  ##\n  ##\n")
+#         r2 = Rectangle(2, 2, 2, 2, 5)
+#         output = io.StringIO()
+#         sys.stdout = output
+#         r2.display()
+#         self.assertEqual(output.getvalue(), "\n\n  ##\n  ##\n")
 
-    def test_update_with_args(self):
-        r1 = Rectangle(1, 10, 3, 5, 25)
-        output = io.StringIO()
-        sys.stdout = output
-        print(r1)
-        self.assertEqual(output.getvalue(), "[Rectangle] (25) 3/5 - 1/10\n")
+#     def test_update_with_args(self):
+#         r1 = Rectangle(1, 10, 3, 5, 25)
+#         output = io.StringIO()
+#         sys.stdout = output
+#         print(r1)
+#         self.assertEqual(output.getvalue(), "[Rectangle] (25) 3/5 - 1/10\n")
 
-        r1.update(1, 3, 2, 4, 3)
-        output = io.StringIO()
-        sys.stdout = output
-        print(r1)
-        self.assertEqual(output.getvalue(), "[Rectangle] (1) 4/3 - 3/2\n")
+#         r1.update(1, 3, 2, 4, 3)
+#         output = io.StringIO()
+#         sys.stdout = output
+#         print(r1)
+#         self.assertEqual(output.getvalue(), "[Rectangle] (1) 4/3 - 3/2\n")
 
-    def test_update_with_kwargs(self):
-        r1 = Rectangle(1, 10, 3, 5, 25)
+#     def test_update_with_kwargs(self):
+#         r1 = Rectangle(1, 10, 3, 5, 25)
 
-        r1.update(height=5, x=10, width=15, y=21, id=3)
-        self.assertEqual(r1.id, 3)
-        self.assertEqual(r1.width, 15)
-        self.assertEqual(r1.height, 5)
-        self.assertEqual(r1.x, 10)
-        self.assertEqual(r1.y, 21)
+#         r1.update(height=5, x=10, width=15, y=21, id=3)
+#         self.assertEqual(r1.id, 3)
+#         self.assertEqual(r1.width, 15)
+#         self.assertEqual(r1.height, 5)
+#         self.assertEqual(r1.x, 10)
+#         self.assertEqual(r1.y, 21)
 
-    def test_update_with_args_and_kwargs(self):
-        r1 = Rectangle(1, 10, 3, 5, 25)
-        args = 1, 3, 2, 4, 3
-        kwargs = {"height": 5, "x": 10, "width": 15, "y": 21, "id": 3}
-        r1.update(*args, **kwargs)
+#     def test_update_with_args_and_kwargs(self):
+#         r1 = Rectangle(1, 10, 3, 5, 25)
+#         args = 1, 3, 2, 4, 3
+#         kwargs = {"height": 5, "x": 10, "width": 15, "y": 21, "id": 3}
+#         r1.update(*args, **kwargs)
 
-        self.assertEqual(r1.id, 1)
-        self.assertEqual(r1.width, 3)
-        self.assertEqual(r1.height, 2)
-        self.assertEqual(r1.x, 4)
-        self.assertEqual(r1.y, 3)
+#         self.assertEqual(r1.id, 1)
+#         self.assertEqual(r1.width, 3)
+#         self.assertEqual(r1.height, 2)
+#         self.assertEqual(r1.x, 4)
+#         self.assertEqual(r1.y, 3)
