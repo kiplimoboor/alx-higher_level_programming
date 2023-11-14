@@ -3,7 +3,7 @@ from models.base import Base
 
 
 class TestBaseInit(unittest.TestCase):
-    def test_no_args(self):
+    def test_with_no_args(self):
         b1 = Base()
         b2 = Base()
         self.assertEqual(b2.id, b1.id + 1)
