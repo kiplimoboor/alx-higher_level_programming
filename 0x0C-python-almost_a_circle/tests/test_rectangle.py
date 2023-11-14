@@ -1,7 +1,8 @@
-import unittest
-
 from models.rectangle import Rectangle
 from models.base import Base
+import io
+import sys
+import unittest
 
 
 class TestRectangleInit(unittest.TestCase):
@@ -68,3 +69,14 @@ class TestRectangleMethods(unittest.TestCase):
 
         r3 = Rectangle(1, 5, 1, 1, 1)
         self.assertEqual(r3.area(), 5)
+
+    def test_display(self):
+        r1 = Rectangle(1, 1)
+
+        output = io.StringIO()
+        sys.stdout = output
+        r1.display()
+        output = output.getvalue()
+        sys.stdout = sys.__stdout__
+
+        self.assertEqual(output, "#\n")
