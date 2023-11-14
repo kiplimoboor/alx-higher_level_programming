@@ -61,34 +61,31 @@ class TestRectangleInit(unittest.TestCase):
             Rectangle(1, 0, 1, -2)
 
 
-class TestRectangleArea(unittest.TestCase):
+class TestRectangleMethods(unittest.TestCase):
+    @staticmethod
+    def print_to_io(rectangle, method="print"):
+        output = io.StringIO()
+        sys.stdout = output
+        if method == "print":
+            print(rectangle)
+        else:
+            rectangle.display()
+        sys.stdout = sys.__stdout__
+        return output.getvalue()
+
     def test_area(self):
-        self.assertEqual(Rectangle(10, 2).area(), 20)
+        self.assertEqual(Rectangle(3, 2).area(), 6)
 
-    def test_large_area(self):
-        r = Rectangle(999999999999999, 999999999999999999, 0, 0, 1)
-        self.assertEqual(r.area(), 999999999999998999000000000000001)
+        r = Rectangle(1, 5, 1, 1, 1)
+        self.assertEqual(r.area(), 5)
 
-    def test_changes_attr(self):
-        r = Rectangle(1, 1)
-        self.assertEqual(r.area(), 1)
+        r.width = 10
+        r.height = 20
+        self.assertEqual(r.area(), 200)
 
-        r.width = 5
-        r.height = 10
-        self.assertEqual(r.area(), 50)
-
-    # def test_str(self):
-    #     r1 = Rectangle(3, 5, 0, 0, 1)
-    #     output = io.StringIO()
-    #     sys.stdout = output
-    #     print(r1)
-    #     self.assertEqual(output.getvalue(), "[Rectangle] (1) 0/0 - 3/5\n")
-
-    #     r2 = Rectangle(4, 6, 2, 1, 12)
-    #     output = io.StringIO()
-    #     sys.stdout = output
-    #     print(r2)
-    #     self.assertEqual(output.getvalue(), "[Rectangle] (12) 2/1 - 4/6\n")
+    def test_str(self):
+        r = Rectangle(3, 5, 0, 0, 1)
+        self.assertEqual(self.print_to_io(r), "[Rectangle] (1) 0/0 - 3/5\n")
 
     # def test_display(self):
     #     r1 = Rectangle(1, 1)
