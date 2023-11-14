@@ -2,6 +2,7 @@ import unittest
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
+import os
 
 
 class TestBaseInit(unittest.TestCase):
@@ -33,8 +34,21 @@ class TestBaseMethods(unittest.TestCase):
         json_dict = Base.to_json_string([s1_dict])
         self.assertTrue(type(json_dict) is str)
 
-        json_dict = Base.to_json_string([r1_dict] + [s1_dict])
+        json_dict = Base.to_json_string([r1_dict, s1_dict])
         self.assertTrue(type(json_dict) is str)
 
         json_dict = Base.to_json_string([])
         self.assertTrue(json_dict == "[]")
+
+    def test_save_to_file(self):
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+
+        filename = "Rectangle.json"
+
+        self.assertFalse(os.path.exists(filename))
+
+        Rectangle.save_to_file([r1, r2])
+
+        self.assertTrue(os.path.exists(filename))
+        os.remove(filename)
