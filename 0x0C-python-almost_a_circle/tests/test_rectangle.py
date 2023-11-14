@@ -19,42 +19,53 @@ class TestRectangleInit(unittest.TestCase):
         r3 = Rectangle(1, 1, 1, 1, 5)
         self.assertEqual(r3.id, 5)
 
-    def test_width_height(self):
+    def test_width(self):
         r1 = Rectangle(1, 2)
         self.assertEqual(r1.width, 1)
-        self.assertEqual(r1.height, 2)
 
         with self.assertRaises(TypeError):
             r2 = Rectangle("Hello", 2)
+
+        with self.assertRaises(ValueError):
+            r2 = Rectangle(0, 2)
+        with self.assertRaises(ValueError):
+            r2 = Rectangle(-1, 2)
+
+    def test_height(self):
+        r1 = Rectangle(3, 4)
+        self.assertEqual(r1.height, 2)
+
         with self.assertRaises(TypeError):
-            r2 = Rectangle(2, "World")
+            r2 = Rectangle(3, "World")
 
         with self.assertRaises(ValueError):
-            r2 = Rectangle(0, 2)
+            r2 = Rectangle(3, 0)
         with self.assertRaises(ValueError):
-            r2 = Rectangle(1, 0)
+            r2 = Rectangle(3, -4)
 
-        with self.assertRaises(ValueError):
-            r2 = Rectangle(0, 2)
-        with self.assertRaises(ValueError):
-            r2 = Rectangle(1, 0)
-
-    def test_x_y(self):
+    def test_x(self):
         r1 = Rectangle(1, 2)
         self.assertEqual(r1.x, 0)
-        self.assertEqual(r1.y, 0)
 
         r2 = Rectangle(1, 2, 3, 4)
         self.assertEqual(r2.x, 3)
-        self.assertEqual(r2.y, 4)
 
         with self.assertRaises(TypeError):
             r3 = Rectangle(1, 2, "Hello", 1)
-        with self.assertRaises(TypeError):
-            r3 = Rectangle(1, 2, 3, "Hello")
 
         with self.assertRaises(ValueError):
             r3 = Rectangle(0, 2, -1, 2)
+
+    def test_y(x):
+        r1 = Rectangle(3, 4)
+        self.assertEqual(r1.y, 0)
+
+        r2 = Rectangle(1, 2, 3, 4)
+        self.assertEqual(r2.y, 4)
+
+        with self.assertRaises(TypeError):
+            r3 = Rectangle(1, 2, 3, "Hello")
+
         with self.assertRaises(ValueError):
             r3 = Rectangle(1, 0, 1, -2)
 
