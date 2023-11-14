@@ -123,3 +123,15 @@ class TestRectangleMethods(unittest.TestCase):
         self.assertEqual(r1.height, 5)
         self.assertEqual(r1.x, 10)
         self.assertEqual(r1.y, 21)
+
+    def test_update_with_args_and_kwargs(self):
+        r1 = Rectangle(1, 10, 3, 5, 25)
+        args = 1, 3, 2, 4, 3
+        kwargs = {"height": 5, "x": 10, "width": 15, "y": 21, "id": 3}
+        r1.update(*args, **kwargs)
+
+        self.assertEqual(r1.id, 1)
+        self.assertEqual(r1.width, 3)
+        self.assertEqual(r1.height, 2)
+        self.assertEqual(r1.x, 4)
+        self.assertEqual(r1.y, 3)
