@@ -1,5 +1,7 @@
 import unittest
 from models.base import Base
+from models.rectangle import Rectangle
+from models.square import Square
 
 
 class TestBaseInit(unittest.TestCase):
@@ -15,5 +17,24 @@ class TestBaseInit(unittest.TestCase):
         self.assertEqual(b2.id, 100)
 
 
-if __name__ == "__main__":
-    unittest.main()
+class TestBaseMethods(unittest.TestCase):
+    def test_to_json_string(self):
+        r1 = Rectangle(10, 2, 4, 5, 2)
+        s1 = Square(1, 2, 2, 3)
+
+        r1_dict = r1.to_dictionary()
+        self.assertTrue(type(r1_dict) is dict)
+        s1_dict = s1.to_dictionary()
+        self.assertTrue(type(s1_dict) is dict)
+
+        json_dict = Base.to_json_string([r1_dict])
+        self.assertTrue(type(json_dict) is str)
+
+        json_dict = Base.to_json_string([s1_dict])
+        self.assertTrue(type(json_dict) is str)
+
+        json_dict = Base.to_json_string([r1_dict] + [s1_dict])
+        self.assertTrue(type(json_dict) is str)
+
+        json_dict = Base.to_json_string([])
+        self.assertTrue(json_dict == "[]")
