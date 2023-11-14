@@ -74,12 +74,10 @@ class Base:
         Returns:
             object: instance of a class object
         """
-        from models.rectangle import Rectangle
-        from models.square import Square
 
         if cls.__name__ == "Rectangle":
-            r2 = Rectangle(3, 8)
+            instance = cls(1, 1)
         elif cls.__name__ == "Square":
-            r2 = Square(5)
-        r2.update(**dictionary)
-        return (r2)
+            instance = cls(1)
+        instance.update(**dictionary)
+        return instance
