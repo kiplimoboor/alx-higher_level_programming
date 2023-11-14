@@ -70,13 +70,21 @@ class TestRectangleMethods(unittest.TestCase):
         r3 = Rectangle(1, 5, 1, 1, 1)
         self.assertEqual(r3.area(), 5)
 
+    def test_str(self):
+        output = io.StringIO()
+        sys.stdout = output
+
+        r1 = Rectangle(4, 6, 2, 1, 12)
+        print(r1)
+        sys.stdout = sys.__stdout__
+        self.assertEqual(output.getvalue(), "[Rectangle] (12) 2/1 - 4/6\n")
+
     def test_display(self):
         r1 = Rectangle(1, 1)
 
         output = io.StringIO()
         sys.stdout = output
         r1.display()
-        output = output.getvalue()
         sys.stdout = sys.__stdout__
 
-        self.assertEqual(output, "#\n")
+        self.assertEqual(output.getvalue(), "#\n")
