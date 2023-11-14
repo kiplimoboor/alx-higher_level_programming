@@ -74,6 +74,6 @@ class Base:
         Returns:
             object: instance of a class object
         """
-        instance = Base.__subclasses__()[0](3, 3)
+        instance = cls(1, 1)
         instance.update(**dictionary)
         return instance
