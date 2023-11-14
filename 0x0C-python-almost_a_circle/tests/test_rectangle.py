@@ -71,12 +71,13 @@ class TestRectangleInit(unittest.TestCase):
 
 
 # class TestRectangleMethods(unittest.TestCase):
-#     def test_area(self):
-#         r1 = Rectangle(3, 2)
-#         self.assertEqual(r1.area(), 6)
 
-#         r2 = Rectangle(1, 5, 1, 1, 1)
-#         self.assertEqual(r2.area(), 5)
+    def test_area(self):
+        r1 = Rectangle(3, 2)
+        self.assertEqual(r1.area(), 6)
+
+        r2 = Rectangle(1, 5, 1, 1, 1)
+        self.assertEqual(r2.area(), 5)
 
 #     def test_str(self):
 #         r1 = Rectangle(3, 5, 0, 0, 1)
