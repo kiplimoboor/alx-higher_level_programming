@@ -63,7 +63,16 @@ class TestRectangleInit(unittest.TestCase):
 
 class TestRectangleMethods(unittest.TestCase):
     @staticmethod
-    def print_to_io(rectangle, method="print"):
+    def print_io(rectangle, method="print"):
+        """prints to StringIO
+
+        Args:
+            rectangle (object): rectangle to be printed
+            method (str, optional): Method to invoke. Defaults to "print".
+
+        Returns:
+            string: printed output
+        """
         output = io.StringIO()
         sys.stdout = output
         if method == "print":
@@ -85,20 +94,13 @@ class TestRectangleMethods(unittest.TestCase):
 
     def test_str(self):
         r = Rectangle(3, 5, 0, 0, 1)
-        self.assertEqual(self.print_to_io(r), "[Rectangle] (1) 0/0 - 3/5\n")
+        self.assertEqual(self.print_io(r), "[Rectangle] (1) 0/0 - 3/5\n")
 
-    # def test_display(self):
-    #     r1 = Rectangle(1, 1)
-    #     output = io.StringIO()
-    #     sys.stdout = output
-    #     r1.display()
-    #     self.assertEqual(output.getvalue(), "#\n")
+    def test_display(self):
+        self.assertEqual(self.print_io(Rectangle(1, 1), "display"), "#\n")
 
-    #     r2 = Rectangle(2, 2, 2, 2, 5)
-    #     output = io.StringIO()
-    #     sys.stdout = output
-    #     r2.display()
-    #     self.assertEqual(output.getvalue(), "\n\n  ##\n  ##\n")
+        r = Rectangle(2, 2, 2, 2, 5)
+        self.assertEqual(self.print_io(r, "display"), "\n\n  ##\n  ##\n")
 
     # def test_update_with_args(self):
     #     r1 = Rectangle(1, 10, 3, 5, 25)
