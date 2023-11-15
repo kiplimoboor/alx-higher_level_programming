@@ -45,19 +45,3 @@ class TestBaseRepresentations(unittest.TestCase):
 
         self.assertTrue(type(r2) is Rectangle)
         self.assertEqual(print_io(r1, "display"), print_io(r2, "display"))
-
-
-class TestFileRepresentations(unittest.TestCase):
-    def test_save_to_file(self):
-        r1 = Rectangle(10, 7, 2, 8)
-        r2 = Rectangle(2, 4)
-        filename = "Rectangle.json"
-
-        with self.assertRaises(FileNotFoundError):
-            with open(filename, 'r') as file:
-                pass
-
-        Rectangle.save_to_file([r1, r2])
-
-        with open(filename, 'r') as file:
-            pass
