@@ -74,13 +74,12 @@ class TestRectangleMethods(unittest.TestCase):
         r.height = 20
         self.assertEqual(r.area(), 200)
 
+    def test_str(self):
+        r = Rectangle(3, 5, 0, 0, 1)
+        self.assertEqual(print_io(r), "[Rectangle] (1) 0/0 - 3/5\n")
 
-def test_str(self):
-    r = Rectangle(3, 5, 0, 0, 1)
-    self.assertEqual(print_io(r), "[Rectangle] (1) 0/0 - 3/5\n")
-
-    r = Rectangle(5, 7, 10, 10, 2)
-    self.assertEqual(print_io(r), "[Rectangle] (2) 10/10 - 5/7\n")
+        r = Rectangle(5, 7, 10, 10, 2)
+        self.assertEqual(print_io(r), "[Rectangle] (2) 10/10 - 5/7\n")
 
     def test_display(self):
         self.assertEqual(self.print_io(Rectangle(1, 1), "display"), "#\n")
