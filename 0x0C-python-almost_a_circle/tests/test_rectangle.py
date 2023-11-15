@@ -16,45 +16,62 @@ class TestRectangleInit(unittest.TestCase):
 
         self.assertEqual(Rectangle(1, 1, 1, 1, 5).id, 5)
 
+    def test_attrs(self):
+        r = Rectangle(1, 1, 1, 1, 5)
+        self.assertTrue(
+            all([r.id == 5, r.width == 1, r.height == 1, r.x == 1, r.y == 1]))
+
     def test_width(self):
-        self.assertEqual(Rectangle(1, 2).width, 1)
+        r = Rectangle(1, 2)
+        self.assertEqual(r.width, 1)
+        r.width = 20
+        self.assertEqual(r.width, 20)
 
         with self.assertRaises(TypeError):
-            Rectangle("Hello", 2)
+            r.width = "Hello"
 
         with self.assertRaises(ValueError):
-            Rectangle(0, 2)
+            r.width = 0
         with self.assertRaises(ValueError):
-            Rectangle(-1, 2)
+            r.width = -1
 
     def test_height(self):
-        self.assertEqual(Rectangle(3, 4).height, 4)
+        r = Rectangle(3, 4)
+        self.assertEqual(r.height, 4)
+        r.height = 20
+        self.assertEqual(r.height, 20)
 
         with self.assertRaises(TypeError):
-            Rectangle(3, "World")
+            r.height = "World"
 
         with self.assertRaises(ValueError):
-            Rectangle(3, 0)
+            r.height = 0
         with self.assertRaises(ValueError):
-            Rectangle(3, -4)
+            r.height = -4
 
     def test_x(self):
         self.assertEqual(Rectangle(1, 2).x, 0)
         self.assertEqual(Rectangle(1, 2, 0, 1).x, 0)
 
-        self.assertEqual(Rectangle(1, 2, 3, 4).x, 3)
+        r = Rectangle(1, 2, 3, 4)
+        self.assertEqual(r.x, 3)
+        r.x = 15
+        self.assertEqual(r.x, 15)
 
         with self.assertRaises(TypeError):
-            Rectangle(1, 2, "Hello", 1)
+            r.x = "Hello"
 
         with self.assertRaises(ValueError):
-            Rectangle(0, 2, -1, 2)
+            r.x = -1
 
     def test_y(self):
         self.assertEqual(Rectangle(3, 4).y, 0)
         self.assertEqual(Rectangle(3, 4, 1, 0).y, 0)
 
-        self.assertEqual(Rectangle(1, 2, 3, 4).y, 4)
+        r = Rectangle(1, 2, 3, 4)
+        self.assertEqual(r.y, 4)
+        r.y = 10
+        self.assertEqual(r.y, 10)
 
         with self.assertRaises(TypeError):
             Rectangle(1, 2, 3, "Hello")
