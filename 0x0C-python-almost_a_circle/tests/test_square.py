@@ -6,7 +6,7 @@ import unittest
 from helper import print_io
 
 
-class TestRectangleInit(unittest.TestCase):
+class TestSquareInit(unittest.TestCase):
     def test_parent_class(self):
         self.assertTrue(type(Square(1, 1)), Rectangle)
 
@@ -21,3 +21,17 @@ class TestRectangleInit(unittest.TestCase):
         s = Square(1)
         r = Rectangle(1, 1)
         self.assertEqual(s.__dict__.keys(), r.__dict__.keys())
+
+    def test_size(self):
+        s = Square(1)
+        self.assertEqual(s.size, 1)
+        self.assertEqual(s.width, 1)
+        self.assertEqual(s.height, 1)
+
+        with self.assertRaises(TypeError):
+            Square("Hello")
+
+        with self.assertRaises(ValueError):
+            Square(0)
+        with self.assertRaises(ValueError):
+            Square(-1)
