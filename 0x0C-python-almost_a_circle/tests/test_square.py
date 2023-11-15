@@ -33,3 +33,19 @@ class TestSquareInit(unittest.TestCase):
             Square(0)
         with self.assertRaisesRegex(ValueError, "width must be > 0"):
             Square(-1)
+
+
+class TestSquareDisplay(unittest.TestCase):
+
+    def test_str(self):
+        s = Square(3, 0, 0, 1)
+        self.assertEqual(print_io(s), "[Square] (1) 0/0 - 3\n")
+
+        s = Square(5, 7, 10, 10)
+        self.assertEqual(print_io(s), "[Square] (10) 7/10 - 5\n")
+
+    def test_display(self):
+        self.assertEqual(print_io(Square(2), "display"), "##\n##\n")
+
+        s = Square(2, 2, 2, 5)
+        self.assertEqual(print_io(s, "display"), "\n\n  ##\n  ##\n")
