@@ -1,6 +1,5 @@
 from models.rectangle import Rectangle
 from models.base import Base
-import sys
 import unittest
 from helper import print_io
 
@@ -129,11 +128,11 @@ class TestRectRepresentations(unittest.TestCase):
     def test_to_dictionary(self):
         r1 = Rectangle(10, 2, 1, 9)
         r1_dict = r1.to_dictionary()
-        self.assertTrue(type(r1_dict) == dict)
+        self.assertTrue(type(r1_dict) is dict)
 
         r2 = Rectangle(1, 1)
         r2.update(**r1_dict)
         r2_dict = r2.to_dictionary()
-        self.assertTrue(type(r2_dict) == dict)
+        self.assertTrue(type(r2_dict) is dict)
 
         self.assertEqual(r1_dict, r2_dict)

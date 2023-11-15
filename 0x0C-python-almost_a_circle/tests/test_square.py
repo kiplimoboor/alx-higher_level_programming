@@ -1,7 +1,6 @@
 from models.square import Square
 from models.rectangle import Rectangle
 from models.base import Base
-import sys
 import unittest
 from helper import print_io
 
@@ -93,11 +92,11 @@ class TestSquareRepresentations(unittest.TestCase):
     def test_to_dictionary(self):
         s1 = Square(10, 2, 1)
         s1_dict = s1.to_dictionary()
-        self.assertTrue(type(s1_dict) == dict)
+        self.assertTrue(type(s1_dict) is dict)
 
         s2 = Square(1)
         s2.update(**s1_dict)
         s2_dict = s2.to_dictionary()
-        self.assertTrue(type(s2_dict) == dict)
+        self.assertTrue(type(s2_dict) is dict)
 
         self.assertEqual(s1_dict, s2_dict)
