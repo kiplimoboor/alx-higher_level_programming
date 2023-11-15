@@ -87,3 +87,17 @@ class TestSquareUpdate(unittest.TestCase):
         kwargs = {"size": 5, "x": 10, "y": 21, "id": 3}
         s.update(*args, **kwargs)
         self.assertEqual(print_io(s), "[Square] (1) 4/3 - 3\n")
+
+
+class TestSquareRepresentations(unittest.TestCase):
+    def test_to_dictionary(self):
+        s1 = Square(10, 2, 1)
+        s1_dict = s1.to_dictionary()
+        self.assertTrue(type(s1_dict) == dict)
+
+        s2 = Square(1)
+        s2.update(**s1_dict)
+        s2_dict = s2.to_dictionary()
+        self.assertTrue(type(s2_dict) == dict)
+
+        self.assertEqual(s1_dict, s2_dict)

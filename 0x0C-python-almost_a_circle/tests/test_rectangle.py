@@ -123,3 +123,17 @@ class TestRectangleUpdate(unittest.TestCase):
             kwargs = {"height": 5, "x": 10, "width": 15, "y": 21, "id": 3}
             r.update(*args, **kwargs)
             self.assertEqual(print_io(r), "[Rectangle] (1) 4/3 - 3/2\n")
+
+
+class TestRectRepresentations(unittest.TestCase):
+    def test_to_dictionary(self):
+        r1 = Rectangle(10, 2, 1, 9)
+        r1_dict = r1.to_dictionary()
+        self.assertTrue(type(r1_dict) == dict)
+
+        r2 = Rectangle(1, 1)
+        r2.update(**r1_dict)
+        r2_dict = r2.to_dictionary()
+        self.assertTrue(type(r2_dict) == dict)
+
+        self.assertEqual(r1_dict, r2_dict)
