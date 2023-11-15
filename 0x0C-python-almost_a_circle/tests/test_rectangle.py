@@ -1,13 +1,13 @@
-# from models.rectangle import Rectangle
-# from models.base import Base
-# import sys
-# import unittest
-# from helper import print_io
+from models.rectangle import Rectangle
+from models.base import Base
+import sys
+import unittest
+from helper import print_io
 
 
-# class TestRectangleInit(unittest.TestCase):
-#     def test_parent_class(self):
-#         self.assertTrue(type(Rectangle(1, 1)), Base)
+class TestRectangleInit(unittest.TestCase):
+    def test_parent_class(self):
+        self.assertTrue(type(Rectangle(1, 1)), Base)
 
 # def test_id(self):
 #     r1 = Rectangle(1, 1)
