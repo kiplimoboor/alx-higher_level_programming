@@ -40,9 +40,11 @@ class TestFileRepresentations(unittest.TestCase):
         self.assertFalse(os.path.exists(filename))
         Rectangle.save_to_file([r1, r2])
         self.assertTrue(os.path.exists(filename))
+        os.remove(filename)
 
         s = Square(1)
         filename = "Square.json"
         self.assertFalse(os.path.exists(filename))
         Square.save_to_file([s])
         self.assertTrue(os.path.exists(filename))
+        os.remove(filename)
