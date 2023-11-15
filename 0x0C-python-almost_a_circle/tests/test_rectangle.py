@@ -85,7 +85,7 @@ class TestRectangleDisplay(unittest.TestCase):
         self.assertEqual(print_io(r), "[Rectangle] (2) 10/10 - 5/7\n")
 
     def test_display(self):
-        self.assertEqual(print_io(Rectangle(1, 1), "display"), "#\n")
+        self.assertEqual(print_io(Rectangle(2, 2), "display"), "##\n##\n")
 
         r = Rectangle(2, 2, 2, 2, 5)
         self.assertEqual(print_io(r, "display"), "\n\n  ##\n  ##\n")
