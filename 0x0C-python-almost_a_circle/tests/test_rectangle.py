@@ -16,16 +16,16 @@ class TestRectangleInit(unittest.TestCase):
 
         self.assertEqual(Rectangle(1, 1, 1, 1, 5).id, 5)
 
-# def test_width(self):
-#     self.assertEqual(Rectangle(1, 2).width, 1)
+    def test_width(self):
+        self.assertEqual(Rectangle(1, 2).width, 1)
 
-#     with self.assertRaises(TypeError):
-#         Rectangle("Hello", 2)
+        with self.assertRaises(TypeError):
+            Rectangle("Hello", 2)
 
-#     with self.assertRaises(ValueError):
-#         Rectangle(0, 2)
-#     with self.assertRaises(ValueError):
-#         Rectangle(-1, 2)
+        with self.assertRaises(ValueError):
+            Rectangle(0, 2)
+        with self.assertRaises(ValueError):
+            Rectangle(-1, 2)
 
 # def test_height(self):
 #     self.assertEqual(Rectangle(3, 4).height, 4)
