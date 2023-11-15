@@ -30,3 +30,21 @@ class TestBaseRepresentations(unittest.TestCase):
         dictionary = s.to_dictionary()
         json_dictionary = Base.to_json_string([dictionary])
         self.assertTrue(type(json_dictionary) == str)
+
+
+class TestFileRepresentations(unittest.TestCase):
+    def test_save_to_file(self):
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        filename = "Rectangle.json"
+        self.assertFalse(os.path.exists(filename))
+        Rectangle.save_to_file([r1, r2])
+        self.assertTrue(os.path.exists(filename))
+        os.remove(filename)
+
+        s = Square(1)
+        filename = "Square.json"
+        self.assertFalse(os.path.exists(filename))
+        Square.save_to_file([s])
+        self.assertTrue(os.path.exists(filename))
+        os.remove(filename)
