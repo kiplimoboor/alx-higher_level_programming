@@ -90,6 +90,9 @@ class TestRectangleDisplay(unittest.TestCase):
         r = Rectangle(2, 2, 2, 2, 5)
         self.assertEqual(print_io(r, "display"), "\n\n  ##\n  ##\n")
 
+        r = Rectangle(2, 2, 0, 2)
+        self.assertEqual(print_io(r, "display"), "\n\n##\n##\n")
+
 
 # class TestRectangleUpdate(unittest.TestCase):
 #     def test_update_with_args(self):
