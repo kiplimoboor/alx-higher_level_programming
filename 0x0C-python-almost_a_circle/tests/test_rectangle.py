@@ -27,16 +27,16 @@ class TestRectangleInit(unittest.TestCase):
         with self.assertRaises(ValueError):
             Rectangle(-1, 2)
 
-# def test_height(self):
-#     self.assertEqual(Rectangle(3, 4).height, 4)
+    def test_height(self):
+        self.assertEqual(Rectangle(3, 4).height, 4)
 
-#     with self.assertRaises(TypeError):
-#         Rectangle(3, "World")
+        with self.assertRaises(TypeError):
+            Rectangle(3, "World")
 
-#     with self.assertRaises(ValueError):
-#         Rectangle(3, 0)
-#     with self.assertRaises(ValueError):
-#         Rectangle(3, -4)
+        with self.assertRaises(ValueError):
+            Rectangle(3, 0)
+        with self.assertRaises(ValueError):
+            Rectangle(3, -4)
 
 # def test_x(self):
 #     self.assertEqual(Rectangle(1, 2).x, 0)
