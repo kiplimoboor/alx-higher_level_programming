@@ -9,10 +9,10 @@ class TestRectangleInit(unittest.TestCase):
     def test_parent_class(self):
         self.assertTrue(type(Rectangle(1, 1)), Base)
 
-# def test_id(self):
-#     r1 = Rectangle(1, 1)
-#     r2 = Rectangle(1, 1)
-#     self.assertEqual(r2.id, r1.id + 1)
+    def test_id(self):
+        r1 = Rectangle(1, 1)
+        r2 = Rectangle(1, 1)
+        self.assertEqual(r2.id, r1.id + 1)
 
 #     self.assertEqual(Rectangle(1, 1, 1, 1, 5).id, 5)
 
