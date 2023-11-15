@@ -55,7 +55,9 @@ class TestFileRepresentations(unittest.TestCase):
 
         with self.assertRaises(FileNotFoundError):
             with open(filename, 'r') as file:
-                file.read()
+                pass
 
         Rectangle.save_to_file([r1, r2])
-        self.assertTrue(os.path.exists(filename))
+
+        with open(filename, 'r') as file:
+            pass
