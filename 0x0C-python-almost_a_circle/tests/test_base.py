@@ -4,6 +4,7 @@ from models.square import Square
 import os
 import io
 import unittest
+from helper import print_io
 
 
 class TestBaseInit(unittest.TestCase):
@@ -30,6 +31,22 @@ class TestBaseRepresentations(unittest.TestCase):
         dictionary = s.to_dictionary()
         json_dictionary = Base.to_json_string([dictionary])
         self.assertTrue(type(json_dictionary) == str)
+
+    def test_from_json_string(self):
+        list_input = [Rectangle(10, 20).to_dictionary()]
+        json_list = Rectangle.to_json_string(list_input)
+        list_output = Rectangle.from_json_string(json_list)
+
+        self.assertTrue(type(json_list) == str)
+        self.assertEqual(list_input, list_output)
+
+    def test_create(self):
+        r1 = Rectangle(3, 5, 1, 4, 6)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+
+        self.assertTrue(type(r2) == Rectangle)
+        self.assertEqual(print_io(r1, "display"), print_io(r2, "display"))
 
 
 class TestFileRepresentations(unittest.TestCase):
