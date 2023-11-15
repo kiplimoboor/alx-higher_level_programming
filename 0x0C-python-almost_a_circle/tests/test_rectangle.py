@@ -40,6 +40,7 @@ class TestRectangleInit(unittest.TestCase):
 
     def test_x(self):
         self.assertEqual(Rectangle(1, 2).x, 0)
+        self.assertEqual(Rectangle(1, 2, 0, 1).x, 0)
 
         self.assertEqual(Rectangle(1, 2, 3, 4).x, 3)
 
@@ -51,6 +52,7 @@ class TestRectangleInit(unittest.TestCase):
 
     def test_y(self):
         self.assertEqual(Rectangle(3, 4).y, 0)
+        self.assertEqual(Rectangle(3, 4, 1, 0).y, 0)
 
         self.assertEqual(Rectangle(1, 2, 3, 4).y, 4)
 
