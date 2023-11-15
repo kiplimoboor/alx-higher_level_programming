@@ -94,13 +94,13 @@ class TestRectangleDisplay(unittest.TestCase):
         self.assertEqual(print_io(r, "display"), "\n\n##\n##\n")
 
 
-# class TestRectangleUpdate(unittest.TestCase):
-#     def test_update_with_args(self):
-#         r = Rectangle(1, 10, 3, 5, 25)
-#         self.assertEqual(print_io(r), "[Rectangle] (25) 3/5 - 1/10\n")
+class TestRectangleUpdate(unittest.TestCase):
+    def test_update_with_args(self):
+        r = Rectangle(1, 10, 3, 5, 25)
+        self.assertEqual(print_io(r), "[Rectangle] (25) 3/5 - 1/10\n")
 
-#         r.update(1, 3, 2, 4, 3)
-#         self.assertEqual(print_io(r), "[Rectangle] (1) 4/3 - 3/2\n")
+        r.update(1, 3, 2, 4, 3)
+        self.assertEqual(print_io(r), "[Rectangle] (1) 4/3 - 3/2\n")
 
 #     def test_update_with_kwargs(self):
 #         r = Rectangle(1, 10, 3, 5, 25)
