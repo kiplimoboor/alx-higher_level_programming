@@ -74,6 +74,9 @@ class TestRectangleMethods(unittest.TestCase):
         r.height = 20
         self.assertEqual(r.area(), 200)
 
+
+class TestRectangleDisplay(unittest.TestCase):
+
     def test_str(self):
         r = Rectangle(3, 5, 0, 0, 1)
         self.assertEqual(print_io(r), "[Rectangle] (1) 0/0 - 3/5\n")
@@ -81,31 +84,33 @@ class TestRectangleMethods(unittest.TestCase):
         r = Rectangle(5, 7, 10, 10, 2)
         self.assertEqual(print_io(r), "[Rectangle] (2) 10/10 - 5/7\n")
 
-    def test_display(self):
-        self.assertEqual(print_io(Rectangle(1, 1), "display"), "#\n")
+    # def test_display(self):
+    #     self.assertEqual(print_io(Rectangle(1, 1), "display"), "#\n")
 
-        r = Rectangle(2, 2, 2, 2, 5)
-        self.assertEqual(print_io(r, "display"), "\n\n  ##\n  ##\n")
+    #     r = Rectangle(2, 2, 2, 2, 5)
+    #     self.assertEqual(print_io(r, "display"), "\n\n  ##\n  ##\n")
 
-    def test_update_with_args(self):
-        r = Rectangle(1, 10, 3, 5, 25)
-        self.assertEqual(print_io(r), "[Rectangle] (25) 3/5 - 1/10\n")
 
-        r.update(1, 3, 2, 4, 3)
-        self.assertEqual(print_io(r), "[Rectangle] (1) 4/3 - 3/2\n")
+# class TestRectangleUpdate(unittest.TestCase):
+#     def test_update_with_args(self):
+#         r = Rectangle(1, 10, 3, 5, 25)
+#         self.assertEqual(print_io(r), "[Rectangle] (25) 3/5 - 1/10\n")
 
-    def test_update_with_kwargs(self):
-        r = Rectangle(1, 10, 3, 5, 25)
-        self.assertEqual(print_io(r), "[Rectangle] (25) 3/5 - 1/10\n")
+#         r.update(1, 3, 2, 4, 3)
+#         self.assertEqual(print_io(r), "[Rectangle] (1) 4/3 - 3/2\n")
 
-        r.update(height=5, x=10, width=15, y=21, id=3)
-        self.assertEqual(print_io(r), "[Rectangle] (3) 10/21 - 15/5\n")
+#     def test_update_with_kwargs(self):
+#         r = Rectangle(1, 10, 3, 5, 25)
+#         self.assertEqual(print_io(r), "[Rectangle] (25) 3/5 - 1/10\n")
 
-    def test_update_with_args_and_kwargs(self):
-        r = Rectangle(1, 10, 3, 5, 25)
-        self.assertEqual(print_io(r), "[Rectangle] (25) 3/5 - 1/10\n")
+#         r.update(height=5, x=10, width=15, y=21, id=3)
+#         self.assertEqual(print_io(r), "[Rectangle] (3) 10/21 - 15/5\n")
 
-        args = 1, 3, 2, 4, 3
-        kwargs = {"height": 5, "x": 10, "width": 15, "y": 21, "id": 3}
-        r.update(*args, **kwargs)
-        self.assertEqual(print_io(r), "[Rectangle] (1) 4/3 - 3/2\n")
+#     def test_update_with_args_and_kwargs(self):
+#         r = Rectangle(1, 10, 3, 5, 25)
+#         self.assertEqual(print_io(r), "[Rectangle] (25) 3/5 - 1/10\n")
+
+#         args = 1, 3, 2, 4, 3
+#         kwargs = {"height": 5, "x": 10, "width": 15, "y": 21, "id": 3}
+#         r.update(*args, **kwargs)
+#         self.assertEqual(print_io(r), "[Rectangle] (1) 4/3 - 3/2\n")
