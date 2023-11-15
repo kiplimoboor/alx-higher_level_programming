@@ -56,3 +56,34 @@ class TestSquareDisplay(unittest.TestCase):
 
         s = Square(2, 2, 2, 5)
         self.assertEqual(print_io(s, "display"), "\n\n  ##\n  ##\n")
+
+
+class TestSquareUpdate(unittest.TestCase):
+    def test_update_with_args(self):
+        s = Square(1, 3, 5, 25)
+        self.assertEqual(print_io(s), "[Square] (25) 3/5 - 1\n")
+
+        s.update(4)
+        self.assertEqual(print_io(s), "[Square] (4) 3/5 - 1\n")
+
+        s.update(4, 5, 4)
+        self.assertEqual(print_io(s), "[Square] (4) 4/5 - 5\n")
+
+        s.update(4, 5, 4, 4)
+        self.assertEqual(print_io(s), "[Square] (4) 4/4 - 5\n")
+
+    def test_update_with_kwargs(self):
+        s = Square(10, 3, 5, 25)
+        self.assertEqual(print_io(s), "[Square] (25) 3/5 - 10\n")
+
+        s.update(size=5, x=10, y=21, id=3)
+        self.assertEqual(print_io(s), "[Square] (3) 10/21 - 5\n")
+
+    def test_update_with_args_and_kwargs(self):
+        s = Square(10, 3, 5, 25)
+        self.assertEqual(print_io(s), "[Square] (25) 3/5 - 10\n")
+
+        args = 1, 3, 4, 3
+        kwargs = {"size": 5, "x": 10, "y": 21, "id": 3}
+        s.update(*args, **kwargs)
+        self.assertEqual(print_io(s), "[Square] (1) 4/3 - 3\n")
