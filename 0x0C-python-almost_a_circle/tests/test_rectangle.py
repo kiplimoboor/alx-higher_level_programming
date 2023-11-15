@@ -14,7 +14,7 @@ class TestRectangleInit(unittest.TestCase):
         r2 = Rectangle(1, 1)
         self.assertEqual(r2.id, r1.id + 1)
 
-#     self.assertEqual(Rectangle(1, 1, 1, 1, 5).id, 5)
+        self.assertEqual(Rectangle(1, 1, 1, 1, 5).id, 5)
 
 # def test_width(self):
 #     self.assertEqual(Rectangle(1, 2).width, 1)
