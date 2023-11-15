@@ -38,16 +38,16 @@ class TestRectangleInit(unittest.TestCase):
         with self.assertRaises(ValueError):
             Rectangle(3, -4)
 
-# def test_x(self):
-#     self.assertEqual(Rectangle(1, 2).x, 0)
+    def test_x(self):
+        self.assertEqual(Rectangle(1, 2).x, 0)
 
-#     self.assertEqual(Rectangle(1, 2, 3, 4).x, 3)
+        self.assertEqual(Rectangle(1, 2, 3, 4).x, 3)
 
-#     with self.assertRaises(TypeError):
-#         Rectangle(1, 2, "Hello", 1)
+        with self.assertRaises(TypeError):
+            Rectangle(1, 2, "Hello", 1)
 
-#     with self.assertRaises(ValueError):
-#         Rectangle(0, 2, -1, 2)
+        with self.assertRaises(ValueError):
+            Rectangle(0, 2, -1, 2)
 
 # def test_y(self):
 #     self.assertEqual(Rectangle(3, 4).y, 0)
