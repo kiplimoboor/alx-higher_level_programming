@@ -96,16 +96,16 @@ class TestRectangleMethods(unittest.TestCase):
 
     def test_update_with_kwargs(self):
         r = Rectangle(1, 10, 3, 5, 25)
-        self.assertEqual(self.print_io(r), "[Rectangle] (25) 3/5 - 1/10\n")
+        self.assertEqual(print_io(r), "[Rectangle] (25) 3/5 - 1/10\n")
 
         r.update(height=5, x=10, width=15, y=21, id=3)
-        self.assertEqual(self.print_io(r), "[Rectangle] (3) 10/21 - 15/5\n")
+        self.assertEqual(print_io(r), "[Rectangle] (3) 10/21 - 15/5\n")
 
     def test_update_with_args_and_kwargs(self):
         r = Rectangle(1, 10, 3, 5, 25)
-        self.assertEqual(self.print_io(r), "[Rectangle] (25) 3/5 - 1/10\n")
+        self.assertEqual(print_io(r), "[Rectangle] (25) 3/5 - 1/10\n")
 
         args = 1, 3, 2, 4, 3
         kwargs = {"height": 5, "x": 10, "width": 15, "y": 21, "id": 3}
         r.update(*args, **kwargs)
-        self.assertEqual(self.print_io(r), "[Rectangle] (1) 4/3 - 3/2\n")
+        self.assertEqual(print_io(r), "[Rectangle] (1) 4/3 - 3/2\n")
