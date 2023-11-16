@@ -2,6 +2,7 @@
 """A class module"""
 
 import json
+import csv
 
 
 class Base:
@@ -96,3 +97,45 @@ class Base:
 
         list_instance = [cls.create(**instance) for instance in json_list]
         return list_instance
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """saves class instances into csv file
+
+        Args:
+            list_objs (list): list of class instances
+        """
+
+        filename = cls.__name__ + ".csv"
+
+        with open(filename, 'w') as file:
+            if not list_objs:
+                file.write("")
+            else:
+                data = [i.to_dictionary() for i in list_objs]
+                fieldnames = list(data[0].keys())
+                writer = csv.DictWriter(file, fieldnames=fieldnames)
+                writer.writeheader()
+                writer.writerows(data)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Loads instances of a class from csv files
+
+        Returns:
+            list: a list of class instances
+        """
+        filename = cls.__name__ + ".csv"
+        rectangles = []
+
+        try:
+            with open(filename, 'r') as csvfile:
+                rows = list(csv.DictReader(csvfile))
+                for row in rows:
+                    for key, value in row.items():
+                        row[key] = int(value)
+                    rectangles.append(cls.create(**row))
+                return rectangles
+
+        except FileNotFoundError:
+            return rectangles
