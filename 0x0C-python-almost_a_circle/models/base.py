@@ -3,6 +3,7 @@
 
 import json
 import csv
+import turtle
 
 
 class Base:
@@ -139,3 +140,71 @@ class Base:
 
         except FileNotFoundError:
             return rectangles
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """Draws all Rectangles and Squares.
+
+            For demonstration, run the draw.py file
+            in the root folder of this project.
+
+            Make sure to have the Turtle graphics module
+            installed on your device.
+
+        Args:
+            list_rectangles (list): rectangle instances
+            list_squares (list): square instances
+        """
+
+        t = turtle.Turtle()
+        t.penup()
+        t.setpos(-300, 300)
+        t.pendown()
+        t.write("Rectangles", move=False, align='center',
+                font=('Arial', 15, 'normal'))
+
+        t.penup()
+        t.setpos(-300, 285)
+        t.pendown()
+
+        for r in list_rectangles:
+            width = r.width
+            height = r.height
+
+            t.forward(width)
+            t.right(90)
+            t.forward(height)
+            t.right(90)
+            t.forward(width)
+            t.right(90)
+            t.forward(height)
+            t.right(90)
+
+            t.penup()
+            t.forward(width + 20)
+            t.pendown()
+
+        t.penup()
+        t.goto(-300, 0)
+        t.pendown()
+
+        t.write("Squares", move=False, align='center',
+                font=('Arial', 15, 'normal'))
+
+        t.penup()
+        t.goto(-300, -15)
+        t.pendown()
+
+        for s in list_squares:
+            size = s.size
+
+            for _ in range(4):
+                t.forward(size)
+                t.right(90)
+
+            t.penup()
+            t.forward(size + 20)
+            t.pendown()
+
+        t.hideturtle()
+        turtle.done()
