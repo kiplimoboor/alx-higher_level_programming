@@ -1,3 +1,4 @@
+-- Total Rating
    SELECT  title,
           sum(rate) AS rating 
      FROM tv_shows
