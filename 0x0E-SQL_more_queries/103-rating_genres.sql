@@ -1,6 +1,6 @@
--- Rate Genres
+-- Rate Movie Genres
    SELECT name,
-          sum(rate) as rating
+          sum(rate) AS rating
      FROM tv_genres
 LEFT JOIN tv_show_genres
        ON tv_genres.id = tv_show_genres.genre_id
