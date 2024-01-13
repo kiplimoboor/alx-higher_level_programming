@@ -4,7 +4,7 @@
     Creates a State Class
 """
 
-from sqlalchemy import create_engine, Column, Integer, String
+from sqlalchemy import create_engine, Column, Integer, String, MetaData
 from sqlalchemy.orm import declarative_base
 
 
