@@ -12,12 +12,9 @@ import MySQLdb
 import sys
 
 args = sys.argv
-user = args[1]
-passwd = args[2]
-database = args[3]
 
-db = MySQLdb.connect(host='localhost', user=user,
-                     passwd=passwd, db=database, port=3306)
+db = MySQLdb.connect(host='localhost', user=args[1],
+                     passwd=args[2], db=args[3], port=3306)
 
 cur = db.cursor()
 cur.execute("SELECT * FROM states")
