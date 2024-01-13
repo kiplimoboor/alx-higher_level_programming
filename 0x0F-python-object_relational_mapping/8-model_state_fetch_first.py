@@ -19,9 +19,9 @@ if __name__ == '__main__':
     conn = engine.connect()
     session = Session(conn)
 
-    result = session.execute(select(State).order_by(State.id)).first()[0]
+    result = session.execute(select(State).order_by(State.id)).first()
 
     if result:
-        print(f'{result.id}: {result.name}')
+        print(f'{result[0].id}: {result[0].name}')
     else:
         print("Nothing")
