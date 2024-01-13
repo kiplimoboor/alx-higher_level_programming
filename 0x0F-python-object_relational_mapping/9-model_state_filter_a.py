@@ -21,8 +21,6 @@ if __name__ == '__main__':
 
     stmt = select(State).where(State.name.regexp_match('a')).order_by(State.id)
 
-    print(stmt)
-
     result = session.execute(stmt).scalars()
 
     for state in result:
