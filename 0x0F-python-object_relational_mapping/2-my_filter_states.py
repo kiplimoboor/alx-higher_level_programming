@@ -12,7 +12,6 @@ import MySQLdb
 
 if __name__ == '__main__':
     args = sys.argv
-
     db = MySQLdb.connect(host='localhost', user=args[1],
                          passwd=args[2], db=args[3], port=3306)
     cur = db.cursor()
@@ -21,3 +20,6 @@ if __name__ == '__main__':
 
     for row in rows:
         print(row)
+
+    cur.close()
+    db.close()
