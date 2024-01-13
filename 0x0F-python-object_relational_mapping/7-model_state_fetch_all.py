@@ -17,7 +17,7 @@ if __name__ == '__main__':
     conn = engine.connect()
     session = Session(conn)
 
-    result = session.execute(select(State)).scalars()
+    result = session.execute(select(State).order_by(State.id)).scalars()
 
     for state in result:
         print(f"{state.id}: {state.name}")
