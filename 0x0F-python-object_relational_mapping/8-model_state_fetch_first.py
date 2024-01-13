@@ -2,7 +2,7 @@
 
 """
     Usage: <program> user password database
-    
+
     Lists first state object
 """
 
@@ -19,7 +19,9 @@ if __name__ == '__main__':
     conn = engine.connect()
     session = Session(conn)
 
-    result = session.execute(select(State).order_by(State.id)).first()
+    result = session.execute(select(State).order_by(State.id)).first()[0]
 
-    for state in result:
-        print(f"{state.id}: {state.name}")
+    if result:
+        print(f'{result.id}: {result.name}')
+    else:
+        print("Nothing")
