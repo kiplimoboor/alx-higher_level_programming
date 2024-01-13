@@ -17,11 +17,9 @@ if __name__ == '__main__':
     engine = create_engine(
         f'mysql+mysqldb://{args[1]}:{args[2]}@localhost:3306/{args[3]}')
 
-    conn = engine.connect()
-    session = Session(conn)
+    session = Session(engine.connect())
 
-    result = session.query(State).where(State.id == 2).first()
-
-    result.name = 'New Mexico'
-
+    state = session.query(State).filter_by(id=2).first()
+    state.name = 'New Mexico'
     session.commit()
+    session.close()
