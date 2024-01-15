@@ -1,27 +1,27 @@
 #!/usr/bin/python3
+
 """
-All states via SQLAlchemy
+    Usage: <program> user passwd database
+
+    Lists all states, and corresponding cities
 """
+
 from sys import argv
-from relationship_state import Base, State
-from relationship_city import City
-from sqlalchemy import (create_engine)
+from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
+from relationship_state import State
+from relationship_city import City
 
-if __name__ == "__main__":
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.
-                           format(argv[1], argv[2], argv[3]),
-                           pool_pre_ping=True)
-    Base.metadata.create_all(engine)
+if __name__ == '__main__':
+    engine = create_engine(
+        f'mysql+mysqldb://{argv[1]}:{argv[2]}@localhost:3306/{argv[3]}')
+    session = Session(engine.connect())
 
-    session = Session(engine)
+    rows = session.query(State).all()
 
-    data = session.query(State).order_by(State.id).all()
-
-    for row in data:
-        print("{}: {}".format(row.id, row.name))
+    for row in rows:
+        print(f'{row.id}: {row.name}')
         for city in row.cities:
-            print("    {}: {}".format(city.id, city.name))
+            print(f'    {city.id}: {city.name}')
 
-    session.commit()
     session.close()
