@@ -1,3 +1,3 @@
 #!/bin/bash
 # Follows redirects
-curl -L "$1"
+curl -sL "$1"
