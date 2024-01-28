@@ -3,9 +3,9 @@
     Fetches from alx
 """
 
-import urllib.request
+from urllib.request import urlopen
 
-with urllib.request.urlopen('https://alx-intranet.hbtn.io/status') as response:
+with urlopen('https://alx-intranet.hbtn.io/status') as response:
     html = response.read()
 
     print("Body response:")
